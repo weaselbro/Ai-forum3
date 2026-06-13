@@ -26,8 +26,21 @@ export async function POST(request: NextRequest) {
       }),
     });
 
+    const body = await response.json();
+
+    // Handle OpenRouter returning error in body (even with 200 status)
+    if (body.error) {
+      const msg = body.error.message || 'OpenRouter returned an error';
+      const code = body.error.code || response.status || 400;
+      if (code === 404 || msg.includes('No endpoints')) {
+        return NextResponse.json({ error: 'Model unavailable or privacy restrictions. Configure: https://openrouter.ai/settings/privacy' }, { status: 404 });
+      }
+      return NextResponse.json({ error: msg }, { status: response.status || 400 });
+    }
+
+    // Handle non-OK responses
     if (!response.ok) {
-      const rawError = await response.text();
+      const rawError = body?.error?.message || `HTTP ${response.status}`;
       const errorMessages: Record<number, string> = {
         401: 'Invalid OpenRouter API key or authorization failed.',
         403: 'OpenRouter rejected this request.',
@@ -35,21 +48,12 @@ export async function POST(request: NextRequest) {
         408: 'Request timed out or OpenRouter was slow. Try again later.',
         504: 'Request timed out or OpenRouter was slow. Try again later.',
       };
-      if (response.status >= 500 && response.status < 600) {
-        return NextResponse.json({ error: 'OpenRouter server error. Try again later.' }, { status: 502 });
-      }
       return NextResponse.json({ error: errorMessages[response.status] || `OpenRouter HTTP ${response.status}: ${rawError}` }, { status: response.status });
-    }
-
-    const body = await response.json();
-    
-    if (body.error) {
-      return NextResponse.json({ error: body.error.message || 'OpenRouter returned an error' }, { status: 400 });
     }
 
     const firstChoice = body.choices?.[0];
     const content = firstChoice?.message?.content;
-    
+
     if (!content || content.trim() === '') {
       return NextResponse.json({ error: 'OpenRouter returned an empty response' }, { status: 502 });
     }

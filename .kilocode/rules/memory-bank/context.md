@@ -14,6 +14,7 @@ The template is a clean Next.js 16 starter with TypeScript and Tailwind CSS 4. I
 - [x] ESLint configuration
 - [x] Memory bank documentation
 - [x] Recipe system for common features
+- [x] Standalone Android OpenRouter Dialogue prototype added under `android-openrouter-dialogue/`
 
 ## Current Structure
 
@@ -23,6 +24,7 @@ The template is a clean Next.js 16 starter with TypeScript and Tailwind CSS 4. I
 | `src/app/layout.tsx` | Root layout | ✅ Ready |
 | `src/app/globals.css` | Global styles | ✅ Ready |
 | `.kilocode/` | AI context & recipes | ✅ Ready |
+| `android-openrouter-dialogue/` | Standalone Android Compose/Retrofit prototype | ✅ Added |
 
 ## Current Focus
 
@@ -85,3 +87,4 @@ export async function GET() {
 | Date | Changes |
 |------|---------|
 | Initial | Template created with base setup |
+| 2026-06-13 | Added standalone Android OpenRouter Dialogue prototype with Compose UI, Retrofit/OpenRouter API client, ViewModel loop, and Gradle setup |

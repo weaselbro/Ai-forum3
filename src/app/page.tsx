@@ -3,10 +3,11 @@
 import { useState, useRef, useEffect } from 'react';
 
 const FREE_MODELS = [
-  'openchat/openchat-7b:free',
-  'huggingfaceh4/zephyr-7b-beta:free',
-  'google/gemma-2-9b-it:free',
-  'mistralai/mistral-7b-instruct:free',
+  'google/gemma-4-26b-a4b-it:free',
+  'meta-llama/llama-3.3-70b-instruct:free',
+  'qwen/qwen3-next-80b-a3b-instruct:free',
+  'openai/gpt-oss-20b:free',
+  'nvidia/nemotron-3-nano-30b-a3b:free',
 ];
 
 type ModelRole = 'A' | 'B';
@@ -28,8 +29,8 @@ type ConnectionStatus =
 
 export default function Home() {
   const [apiKey, setApiKey] = useState('');
-  const [modelA, setModelA] = useState('openchat/openchat-7b:free');
-  const [modelB, setModelB] = useState('huggingfaceh4/zephyr-7b-beta:free');
+  const [modelA, setModelA] = useState('google/gemma-4-26b-a4b-it:free');
+  const [modelB, setModelB] = useState('meta-llama/llama-3.3-70b-instruct:free');
   const [systemPrompt, setSystemPrompt] = useState(
     'Engage in a candid, imaginative, and direct dialogue. Be creative, concise, and responsive to the other model.'
   );

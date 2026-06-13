@@ -2,7 +2,7 @@
 
 ## Purpose
 
-This is a minimal Next.js starter template designed for AI-assisted development. It provides a clean foundation that can be extended to build any type of web application through interaction with an AI assistant.
+This is the OpenRouter Dialogue web application - a Next.js 16 app that lets users watch two AI models have a conversation with each other in real-time.
 
 ## Target Users
 

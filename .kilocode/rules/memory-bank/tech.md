@@ -89,14 +89,16 @@ bun typecheck      # Run TypeScript type checking
 ├── tsconfig.json           # TypeScript configuration
 ├── postcss.config.mjs      # PostCSS (Tailwind) config
 ├── eslint.config.mjs       # ESLint configuration
-├── public/                 # Static assets
-│   └── .gitkeep
 └── src/                    # Source code
     └── app/                # Next.js App Router
         ├── layout.tsx      # Root layout
-        ├── page.tsx        # Home page
+        ├── page.tsx        # Dialogue UI
         ├── globals.css     # Global styles
-        └── favicon.ico     # Site icon
+        ├── favicon.ico     # Site icon
+        └── api/
+            └── dialogue/
+                └── message/
+                    └── route.ts # OpenRouter API proxy
 ```
 
 ## Technical Constraints

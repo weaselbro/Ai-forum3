@@ -20,19 +20,16 @@ The template is a clean Next.js 16 starter with TypeScript and Tailwind CSS 4. I
 
 | File/Directory | Purpose | Status |
 |----------------|---------|--------|
-| `src/app/page.tsx` | Home page | ✅ Ready |
+| `src/app/page.tsx` | OpenRouter Dialogue web app | ✅ Complete |
 | `src/app/layout.tsx` | Root layout | ✅ Ready |
 | `src/app/globals.css` | Global styles | ✅ Ready |
+| `src/app/api/dialogue/message/route.ts` | OpenRouter API proxy | ✅ Complete |
 | `.kilocode/` | AI context & recipes | ✅ Ready |
 | `android-openrouter-dialogue/` | Standalone Android Compose/Retrofit prototype | ✅ Added |
 
 ## Current Focus
 
-The template is ready. Next steps depend on user requirements:
-
-1. What type of application to build
-2. What features are needed
-3. Design/branding preferences
+The OpenRouter Dialogue web app is complete and ready to use. Just run `bun dev` to start the development server.
 
 ## Quick Start Guide
 
@@ -88,3 +85,4 @@ export async function GET() {
 |------|---------|
 | Initial | Template created with base setup |
 | 2026-06-13 | Added standalone Android OpenRouter Dialogue prototype with Compose UI, Retrofit/OpenRouter API client, ViewModel loop, and Gradle setup |
+| 2026-06-13 | Converted Android OpenRouter Dialogue to Next.js web app with React client components and API routes |

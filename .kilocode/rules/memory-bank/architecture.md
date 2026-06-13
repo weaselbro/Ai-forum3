@@ -6,9 +6,13 @@
 src/
 ├── app/                    # Next.js App Router
 │   ├── layout.tsx          # Root layout + metadata
-│   ├── page.tsx            # Home page
+│   ├── page.tsx            # OpenRouter Dialogue UI
 │   ├── globals.css         # Tailwind imports + global styles
-│   └── favicon.ico         # Site icon
+│   ├── favicon.ico         # Site icon
+│   └── api/
+│       └── dialogue/
+│           └── message/
+│               └── route.ts # OpenRouter API proxy endpoint
 └── (expand as needed)
     ├── components/         # React components (add when needed)
     ├── lib/                # Utilities and helpers (add when needed)

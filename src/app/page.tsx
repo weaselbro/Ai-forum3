@@ -253,6 +253,11 @@ export default function Home() {
 
           <p className={`text-sm ${status.type === 'error' ? 'text-red-400' : 'text-neutral-400'}`}>
             {statusText()}
+            {status.type === 'error' && status.message.includes('privacy restrictions') && (
+              <a href="https://openrouter.ai/settings/privacy" target="_blank" rel="noopener noreferrer" className="ml-2 text-blue-400 underline">
+                Configure privacy settings
+              </a>
+            )}
           </p>
         </div>
 
